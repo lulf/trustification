@@ -10,19 +10,19 @@ metadata:
     pipelinesascode.tekton.dev/on-target-branch: '[rhtap]'
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: bombastic-indexer
-    appstudio.openshift.io/component: bombastic-indexer
+    appstudio.openshift.io/application: bombastic-api
+    appstudio.openshift.io/component: bombastic-api
     pipelines.appstudio.openshift.io/type: build
-  name: bombastic-indexer-on-push
+  name: bombastic-api-on-push
   namespace: ulilleen-tenant
 spec:
   params:
   - name: dockerfile
-    value: Containerfile.bombastic-indexer
+    value: Containerfile.bombastic-api
   - name: git-url
     value: '{{repo_url}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/ulilleen-tenant/bombastic-indexer/bombastic-indexer:{{revision}}
+    value: quay.io/redhat-user-workloads/ulilleen-tenant/bombastic-api/bombastic-api:{{revision}}
   - name: path-context
     value: .
   - name: revision
