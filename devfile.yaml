@@ -1,7 +1,7 @@
 schemaVersion: 2.2.0
 metadata:
   name: trustification
-  version: 1.0.0
+  version: 1.2.1
   provider: Red Hat
   supportUrl: https://github.com/trustification/trustification
   website: https://trustification.io
@@ -24,6 +24,9 @@ components:
         buildContext: .
         rootRequired: false
 commands:
-  - id: build-image
+  - id: build-backend
     apply:
-      component: image-build
+      component: trust-backend
+  - id: build-frontend
+    apply:
+      component: trust-frontend
