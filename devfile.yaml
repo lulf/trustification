@@ -1,0 +1,29 @@
+schemaVersion: 2.2.0
+metadata:
+  name: trustification
+  version: 1.0.0
+  provider: Red Hat
+  supportUrl: https://github.com/trustification/trustification
+  website: https://trustification.io
+  displayName: Trustification
+  description: Trustification Services
+  language: Rust
+components:
+  - name: trust-backend
+    image:
+      imageName: trust-backend:latest
+      dockerfile:
+        uri: Containerfile.trust
+        buildContext: .
+        rootRequired: false
+  - name: trust-frontend
+    image:
+      imageName: trust-frontend:latest
+      dockerfile:
+        uri: Containerfile.ui
+        buildContext: .
+        rootRequired: false
+commands:
+  - id: build-image
+    apply:
+      component: image-build
